@@ -1,19 +1,21 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import noImage from "../assets/noImage.jpg";
 
 const AddClothes = () => {
   // upload image
   const [image, setImage] = useState(noImage);
-  const [file, setFile] = useState(null);
+  const [file, setFile] = useState<File | null>(null);
 
-  const previewImage = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      let url = URL.createObjectURL(file);
-      setImage(url);
-      setFile(file);
+  const previewImage = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file = e.target.files[0];
+      if (file) {
+        let url = URL.createObjectURL(file);
+        setImage(url);
+        setFile(file);
 
-      return () => URL.revokeObjectURL(url);
+        return () => URL.revokeObjectURL(url);
+      }
     }
   };
 
