@@ -1,6 +1,6 @@
 const Gallery = () => {
   // display images
-  return <div></div>;
+  return <div>GALLERY</div>;
 };
 
 export default Gallery;

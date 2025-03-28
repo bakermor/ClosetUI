@@ -1,6 +1,6 @@
 const DeleteClothes = () => {
   // delete image
-  return <div></div>;
+  return <div>DELETE</div>;
 };
 
 export default DeleteClothes;
