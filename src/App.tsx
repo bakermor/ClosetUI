@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 import AddClothes from "./pages/AddClothes";
 import Gallery from "./pages/Gallery";
 import DeleteClothes from "./pages/DeleteClothes";
