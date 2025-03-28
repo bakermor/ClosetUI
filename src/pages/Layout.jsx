@@ -3,7 +3,8 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   // navigation bar
   return (
-    <div>
+    <div className="flex-1">
+      <div></div>
       <Outlet />
     </div>
   );
