@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react";
+import { uploadClothes } from "../api/ClothesApi";
 import noImage from "../assets/noImage.jpg";
 
 const AddClothes = () => {
-  // upload image
   const [image, setImage] = useState(noImage);
   const [file, setFile] = useState<File | null>(null);
 
@@ -16,6 +16,19 @@ const AddClothes = () => {
 
         return () => URL.revokeObjectURL(url);
       }
+    }
+  };
+
+  const handleUpload = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    if (file) {
+      uploadClothes(file)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   };
 
@@ -44,8 +57,9 @@ const AddClothes = () => {
         <div className="flex justify-center">
           <div className="h-20 bg-gray-300 w-55 mt-5 p-3 flex justify-center align-middle">
             <button
+              className="flex-1"
               onClick={(e) => {
-                e.preventDefault();
+                handleUpload(e);
               }}
             >
               Upload
