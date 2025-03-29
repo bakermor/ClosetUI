@@ -49,19 +49,12 @@ const AddClothes = () => {
             id="image-upload"
             type="file"
             className="hidden"
-            onChange={(e) => {
-              previewImage(e);
-            }}
+            onChange={previewImage}
           />
         </div>
         <div className="flex justify-center">
           <div className="h-20 bg-gray-300 w-55 mt-5 p-3 flex justify-center align-middle">
-            <button
-              className="flex-1"
-              onClick={(e) => {
-                handleUpload(e);
-              }}
-            >
+            <button className="flex-1" onClick={handleUpload}>
               Upload
             </button>
           </div>
